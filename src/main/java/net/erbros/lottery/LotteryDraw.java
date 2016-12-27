@@ -1,37 +1,19 @@
 package net.erbros.lottery;
 
+import lombok.AllArgsConstructor;
+
 import java.util.TimerTask;
 
+@AllArgsConstructor
+public class LotteryDraw extends TimerTask {
 
-class LotteryDraw extends TimerTask
-{
+    private final Lottery plugin;
+    private final boolean draw;
 
-    final private Lottery plugin;
-    final private boolean draw;
-
-    public LotteryDraw( final Lottery plugin, final boolean draw )
-    {
-        this.plugin = plugin;
-        this.draw = draw;
-    }
-
-    public void run()
-    {
-
-        if ( draw && plugin.isLotteryDue() )
-        {
-            plugin.getServer().getScheduler().scheduleSyncDelayedTask(
-                    plugin, new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            plugin.lotteryDraw();
-                        }
-                    } );
-        }
-        else
-        {
+    public void run() {
+        if (draw && plugin.isLotteryDue()) {
+            plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, plugin::lotteryDraw);
+        } else {
             plugin.extendLotteryDraw();
         }
     }

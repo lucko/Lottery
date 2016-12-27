@@ -1,10 +1,7 @@
 name: Lottery
 main: net.erbros.lottery.Lottery
 version: 1.1.0
-authors:
-  - Erbros
-  - KHobbits
-  - Kukelekuuk00
+authors: [Erbros, KHobbits, Kukelekuuk00]
 softDepend: [Vault]
 commands:
   lottery:

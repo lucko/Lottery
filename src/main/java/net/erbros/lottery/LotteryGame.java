@@ -371,7 +371,7 @@ public class LotteryGame {
                     if (player.hasMetadata("LotteryOptOut") && player.getMetadata("LotteryOptOut").get(0).asBoolean()) {
                         continue;
                     }
-                    outMessage = outMessage.replaceAll("%player%", player.getDisplayName());
+                    outMessage = outMessage.replaceAll("%player%", player.getName());
                     player.sendMessage(outMessage);
                 }
             }
@@ -385,7 +385,7 @@ public class LotteryGame {
             for (String message : lConfig.getMessage(topic)) {
                 String outMessage = formatCustomMessageLive(message, args);
                 if (player instanceof Player) {
-                    outMessage = outMessage.replaceAll("%player%", Matcher.quoteReplacement(((Player) player).getDisplayName()));
+                    outMessage = outMessage.replaceAll("%player%", Matcher.quoteReplacement(player.getName()));
                 }
                 player.sendMessage(outMessage);
             }

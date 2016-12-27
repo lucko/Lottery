@@ -203,10 +203,10 @@ public class MainCommandExecutor implements CommandExecutor {
             if (lConfig.isBroadcastBuying()) {
                 if (lGame.timeUntil() < lConfig.getBroadcastBuyingTime()) {
                     lGame.broadcastMessage(
-                            "BoughtAnnounceDraw", player.getDisplayName(), buyTickets, lConfig.getPlural("ticket", buyTickets), lGame.timeUntil(true));
+                            "BoughtAnnounceDraw", player.getName(), buyTickets, lConfig.getPlural("ticket", buyTickets), lGame.timeUntil(true));
                 } else {
                     lGame.broadcastMessage(
-                            "BoughtAnnounce", player.getDisplayName(), buyTickets, lConfig.getPlural("ticket", buyTickets));
+                            "BoughtAnnounce", player.getName(), buyTickets, lConfig.getPlural("ticket", buyTickets));
                 }
             }
         } else {
